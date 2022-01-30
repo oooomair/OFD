@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@200&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Public Sans", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+}
+
+.App {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+img {
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: rgb(140, 140, 140);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(80, 80, 80);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(120, 120, 120);
+}
+
+@import "./navbar";
+@import "./home";
