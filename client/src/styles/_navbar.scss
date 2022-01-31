@@ -22,7 +22,7 @@
     color: #eef2ff;
     text-transform: uppercase;
     position: relative;
-    &:after {
+    &::after {
       content: "";
       position: absolute;
       width: 0;
