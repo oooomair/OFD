@@ -1,14 +1,14 @@
 import HomeFooter from "./home/HomeFooter";
 import HomeGetGive from "./home/HomeGetGive";
 import HomeLand from "./home/HomeLand";
-import HomeSRF from "./home/HomeSRF";
+import HomeSR from "./home/HomeSR";
 
 const Home = () => {
   return (
   <div className='home'>
     <HomeLand/>
     <HomeGetGive/>
-    <HomeSRF/>
+    <HomeSR/>
     <HomeFooter/>
   </div>
   )

@@ -66,8 +66,12 @@ ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px 300px;
   background-color: #676fa3;
+  position: relative;
 }
 
 .navbar img {
@@ -129,6 +133,134 @@ ul {
   background-color: #ff4f4f;
 }
 
+.nav-icon {
+  display: none;
+  width: 60px;
+  height: 45px;
+  z-index: 20;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-icon span {
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 100%;
+  background: #ff4f4f;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.nav-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.nav-icon span:nth-child(3) {
+  top: 18px;
+}
+
+.nav-icon span:nth-child(2) {
+  top: 18px;
+}
+
+.nav-icon span:nth-child(4) {
+  top: 36px;
+}
+
+.nav-icon-open {
+  position: fixed;
+  right: 30px;
+}
+
+.nav-icon-open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.nav-icon-open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.nav-icon-open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.nav-icon-open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.navbar-res {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  padding-top: 200px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  width: 0%;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  background-color: #eef2ff;
+  width: 100%;
+  height: 800px;
+  -webkit-animation: burger-close 0.5s;
+          animation: burger-close 0.5s;
+}
+
+.navbar-res li {
+  color: #676fa3;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  -webkit-animation: burger-li 1s;
+          animation: burger-li 1s;
+  border-bottom: 1px solid #676fa3;
+}
+
+.navbar-res-open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: burger-open 0.5s;
+          animation: burger-open 0.5s;
+}
+
+@-webkit-keyframes burger-open {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes burger-open {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 1600px) {
   .navbar {
     padding: 10px 200px;
@@ -159,6 +291,9 @@ ul {
   }
   .navbar__list {
     display: none;
+  }
+  .nav-icon {
+    display: block;
   }
 }
 

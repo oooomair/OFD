@@ -1,5 +1,3 @@
-import React from 'react';
-
 const HomeGetGive = () => {
   return <div className='home__home-get-give'>
       <div className="home__get">
