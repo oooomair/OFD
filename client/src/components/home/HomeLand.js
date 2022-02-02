@@ -1,5 +1,6 @@
 import ramen from '../../assets/ramen.png'
 import dumplings from '../../assets/dumplings.png'
+import {Link} from 'react-router-dom'
 
 const HomeLand = () => {
   return (
@@ -15,7 +16,9 @@ const HomeLand = () => {
             <p>AND <span>FRESH</span> </p>
         </div>
             <div className="home__btn">
+                <Link style={{ color:'inherit', textDecoration:'none' }} to={'/explore'} >
                 <button>EXPLORE</button>
+                </Link>
             </div>
         </div>
 

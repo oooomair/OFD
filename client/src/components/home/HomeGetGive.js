@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 const HomeGetGive = () => {
   return <div className='home__home-get-give'>
       <div className="home__get">
@@ -11,7 +13,9 @@ const HomeGetGive = () => {
                 <input type="text" />
                 <button>GO</button>
             </div>
+            <Link style={{ color:'inherit', textDecoration:'none', padding:'20px 0' }} to={'/explore'} >
             <span>see all resturants</span>
+            </Link>
           </div>
       </div>
       <div className="home__give">
@@ -20,7 +24,9 @@ const HomeGetGive = () => {
               <p>GET FOOD FROM ANY RESTURANT IN UR AREA HAVE DINNER BREAKFAST LUNCH OR ANYTHING UPTO YOU FROM A WIDE VARIETY OF COUSINES AND FOODS AND  PRICING RANGING FROM CHEAP TO EXPENSIVE  </p>
           </div>
           <div className="home__give2">
+            <Link style={{ color:'inherit', textDecoration:'none' }} to={'/SellerCave'} >
             <span>add your resturant</span>
+            </Link>
           </div>
       </div>
   </div>;
