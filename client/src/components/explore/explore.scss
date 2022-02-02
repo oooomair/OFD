@@ -1,0 +1,172 @@
+.explore {
+  background-color: #f7f9ff;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 10px 0;
+  min-height: 100vh;
+
+  h1 {
+    font-size: 5rem;
+    color: #ff5959;
+  }
+
+  input {
+    width: 700px;
+    border: 1px solid #e2e2e2;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    margin-top: 15px;
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
+}
+
+.explore__resturants {
+  padding: 80px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 3rem;
+  column-gap: 4rem;
+  cursor: pointer;
+}
+
+.explore__resturant {
+  display: flex;
+  color: inherit;
+  text-decoration: none;
+}
+
+.explore__resturant-logo {
+  width: 150px;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.explore__resturant-info {
+  display: flex;
+  flex-flow: column;
+  padding: 10px 20px;
+  h2 {
+    font-size: 2.5rem;
+    color: #ff5959;
+  }
+  p,
+  span,
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .explore__resturants {
+    column-gap: 4rem;
+  }
+
+  .explore__resturant-logo {
+    width: 130px;
+  }
+
+  .explore__resturant-info {
+    h2 {
+      font-size: 2.1rem;
+    }
+    p,
+    span,
+    h3 {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .explore__resturants {
+    padding: 60px 0;
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .explore {
+    input {
+      width: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .explore {
+    input {
+      width: 450px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .explore {
+    padding: 20px 0;
+    h1 {
+      font-size: 4rem;
+    }
+    input {
+      width: 350px;
+      height: 35px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .explore {
+    h1 {
+      font-size: 3.8rem;
+    }
+    input {
+      width: 320px;
+    }
+  }
+  .explore__resturant-logo {
+    width: 120px;
+  }
+
+  .explore__resturant-info {
+    padding: 10px 10px;
+    h2 {
+      font-size: 2rem;
+    }
+    p,
+    span,
+    h3 {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .explore {
+    h1 {
+      font-size: 3.6rem;
+    }
+    input {
+      width: 300px;
+    }
+  }
+  .explore__resturant-logo {
+    width: 110px;
+  }
+  .explore__resturant-info {
+    h2 {
+      font-size: 1.8rem;
+    }
+    p,
+    span,
+    h3 {
+      font-size: 0.9rem;
+    }
+  }
+}

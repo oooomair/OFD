@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
-import ScrollToTop from './components/ScrollToTop';
+import App from './components/app/App';
+import ScrollToTop from './components/other/ScrollToTop';
 import {GlobalProvider} from './context/Context'
 
 ReactDOM.render(
