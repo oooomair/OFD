@@ -4,6 +4,7 @@ import './app.scss';
 import {Route, Routes} from 'react-router-dom'
 import Explore from '../explore/Explore';
 import Resturant from '../resturant/Resturant';
+import Cart from '../cart/Cart';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path='/' element={<><NavbarB/><Home/></>} />
         <Route path='/explore' element={<><NavbarW/><Explore/> </>} />
         <Route path='/resturant' element={<><NavbarB/><Resturant/></>}/>
+        <Route path='/cart' element={<><NavbarW/><Cart/></>}/>
       </Routes>
     </div>
   );
