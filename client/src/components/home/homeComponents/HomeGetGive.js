@@ -13,7 +13,7 @@ const HomeGetGive = () => {
                 <input type="text" />
                 <button>GO</button>
             </div>
-            <Link style={{ color:'inherit', textDecoration:'none', padding:'20px 0' }} to={'/explore'} >
+            <Link style={{ color:'inherit', textDecoration:'none' }} to={'/explore'} >
             <span>see all resturants</span>
             </Link>
           </div>

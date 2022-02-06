@@ -5,6 +5,8 @@ import {Route, Routes} from 'react-router-dom'
 import Explore from '../explore/Explore';
 import Resturant from '../resturant/Resturant';
 import Cart from '../cart/Cart';
+import SignUp from '../SignUp/SignUp';
+import Login from '../login/Login';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path='/explore' element={<><NavbarW/><Explore/> </>} />
         <Route path='/resturant' element={<><NavbarB/><Resturant/></>}/>
         <Route path='/cart' element={<><NavbarW/><Cart/></>}/>
+        <Route path='/signup' element={<><NavbarW/><SignUp/></>}/>
+        <Route path='/login' element={<><NavbarW/><Login/></>}/>
       </Routes>
     </div>
   );

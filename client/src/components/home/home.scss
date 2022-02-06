@@ -56,7 +56,7 @@
     button {
       background-color: #ff5959;
       border: #ff5959 2px solid;
-      padding: 20px 70px;
+      padding: 15px 70px;
       border-radius: 10px;
       color: #eef2ff;
       font-size: 1.5rem;
@@ -242,6 +242,7 @@
   align-items: center;
   width: 50%;
   .home__get-search {
+    margin-bottom: 35px;
     p {
       margin: 0 0 5px 5px;
     }
