@@ -1,4 +1,4 @@
-import kfcfood from '../../../assets/kfcfood.png'
+import mightyZinger from '../../../assets/mightyZinger.png'
 import {AiOutlinePlus} from 'react-icons/ai'
 import {BiMinus} from 'react-icons/bi'
 import {BsTrash} from 'react-icons/bs'
@@ -16,7 +16,7 @@ const CartItem = () => {
 
   return <div className='cart__cart-item' >
         <div className="cart__food-img">
-            <img src={kfcfood} alt="food" />
+            <img src={mightyZinger} alt="food" />
         </div>
       <div className="cart__food-info">
         <h3>Mighty Zinger Meal</h3>

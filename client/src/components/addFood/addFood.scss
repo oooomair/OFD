@@ -1,0 +1,131 @@
+.add-food {
+  display: flex;
+  flex-flow: column;
+  min-height: 90vh;
+  background-color: #f7f9ff;
+  width: 100%;
+  align-items: center;
+  h1 {
+    font-size: 5rem;
+    color: #ff5959;
+  }
+  h2 {
+    font-size: 4rem;
+    color: #ff5959;
+  }
+}
+
+.add-food__form {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  margin: 20px 0;
+  width: 800px;
+  span {
+    font-size: 1.2rem;
+    margin: 30px 0 5px 5px;
+  }
+  input {
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #eeeeee;
+    border: none;
+    padding: 0 10px;
+    font-size: 1.1rem;
+  }
+  button {
+    background-color: #ff5959;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    color: #f7f9ff;
+    height: 35px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    &:hover {
+      background-color: #fd5353;
+    }
+    &:last-of-type {
+      width: 90%;
+      align-self: center;
+      margin-top: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .add-food__form {
+    width: 700px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .add-food {
+    h1 {
+      font-size: 4.5rem;
+    }
+    h2 {
+      font-size: 3.5rem;
+    }
+  }
+  .add-food__form {
+    width: 550px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .add-food {
+    h1 {
+      font-size: 4.5rem;
+    }
+    h2 {
+      font-size: 3.5rem;
+    }
+  }
+  .add-food__form {
+    width: 450px;
+    button {
+      width: 150px;
+      &:last-of-type {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .add-food {
+    h1 {
+      font-size: 4rem;
+      margin-top: 10px;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+  }
+  .add-food__form {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .add-food {
+    h1 {
+      font-size: 3.3rem;
+    }
+    h2 {
+      font-size: 2.4rem;
+    }
+  }
+  .add-food__form {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .add-food__form {
+    width: 290px;
+  }
+}

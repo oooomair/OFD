@@ -49,12 +49,12 @@
 }
 
 @media screen and (max-width: 600px) {
-  .signup {
+  .login {
     h1 {
-      font-size: 4.5rem;
+      font-size: 4rem;
     }
   }
-  .signup__info {
+  .login__info {
     input {
       width: 300px;
     }
