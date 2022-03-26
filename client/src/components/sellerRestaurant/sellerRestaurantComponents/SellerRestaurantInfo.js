@@ -1,19 +1,69 @@
-import kfclogo from '../../../assets/kfc.png'
+import { useContext } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { GlobalContext } from '../../../context/GlobalContext'
+import useFetch from '../../other/useFetch'
+import Swal from 'sweetalert2'
 
 const SellerRestaurantInfo = () => {
+
+  const {user} = useContext(GlobalContext)
+  let navigate = useNavigate()
+
+  const {id} = useParams()
+  const {data: restaurant, isPending, error} = useFetch(`http://localhost:5000/restaurants/${id}`)
+
+  const onDelete = () => {
+
+    Swal.fire({
+      title: 'Are you sure you want to remove the restaurant?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#grey',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'The restaurant has been deleted.',
+          'success'
+        )
+        fetch(
+          `http://localhost:5000/restaurants/${id}/${user._id}`,
+          {
+            method: 'DELETE'
+          }
+        ).then(res => {
+          return res.json()
+        }).then(data => {
+          navigate('/seller', {replace: true})
+          console.log(data);
+        }).catch(err => {
+          console.log(err);
+        })
+      }
+    })
+  }
+
+
+
   return (
-    <div className='seller-restaurant__seller-restaurant-info'>
-      <h3> KFC </h3>
+    <>
+    {error && <h5>error</h5>} 
+    {isPending && <div className="dot-revolution"></div>}
+    {restaurant && <div className='seller-restaurant__seller-restaurant-info'>
+      <h3> {restaurant.name} </h3>
         <div className="seller-restaurant__logo">
-            <img src={kfclogo} alt="logo" />    
+            <img src={`http://localhost:5000/${restaurant.logo}`} alt="logo" />    
         </div>
         <div className="seller-restaurant__details">
-            <h2>KFC</h2>
-            <span>Restaurant Sales : 126 eth</span>   
-            <span>Restaurant Products Sold : 550</span> 
-            <button>Remove Restaurant</button>
+            <h2>{restaurant.name}</h2>
+            <span>Restaurant Sales : {restaurant.sales}</span>
+            <button onClick={onDelete} >Remove Restaurant</button>
         </div>
-    </div>
+    </div>}
+    </>
   )
 }
 

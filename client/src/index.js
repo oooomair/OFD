@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './components/app/App';
 import ScrollToTop from './components/other/ScrollToTop';
-import {GlobalProvider} from './context/Context'
+import {GlobalProvider} from './context/GlobalContext'
 
 ReactDOM.render(
   <BrowserRouter>

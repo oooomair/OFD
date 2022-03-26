@@ -5,16 +5,16 @@ import useFetch from '../../other/useFetch'
 const RestaurantFoods = () => {
 
   const {id} = useParams()
-  const {data: restaurant, isPending, error} = useFetch(`http://localhost:8000/restaurants/${id}`)
-
+  
+   const {data: restaurant, isPending, error} = useFetch(`http://localhost:5000/restaurants/${id}`)
 
   return <div className='restaurant__restaurant-foods' >
       {error && <h5>error</h5>} 
-      {isPending && <div class="dot-revolution"></div>} 
-      {restaurant && restaurant.foods.map(food => {
-      return <RestaurantFood food={food} />
-    })}
-  </div>;
+      {isPending && <div className="dot-revolution"></div>} 
+      {restaurant && restaurant.foods ? restaurant.foods.map(food => {
+      return <RestaurantFood key={food._id} food={food} /> 
+      }) : <h6>No food Avalaible</h6>}
+      </div>;
 };
 
 export default RestaurantFoods;

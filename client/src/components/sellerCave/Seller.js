@@ -1,4 +1,3 @@
-import React from 'react'
 import SellerLand from './sellerCaveComponents/SellerLand'
 import SellerRestaurants from './sellerCaveComponents/SellerRestaurants'
 import './seller.scss'

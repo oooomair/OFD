@@ -1,6 +1,36 @@
 const express = require('express')
 const router = express.Router()
-const Restaurant = require('../models/Restaurant')
+const Restaurant = require('../models/restaurant')
+const User = require('../models/user')
+const mongoose = require('mongoose')
+const multer = require('multer')
+const Food = require('../models/food')
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      cb(null, './uploads/');
+    },
+    filename: function(req, file, cb) {
+      cb(null, new Date().toISOString() + file.originalname);
+    }
+  });
+  
+  const fileFilter = (req, file, cb) => {
+    // reject a file
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+      cb(null, true);
+    } else {
+      cb(new Error('only jpegs and pngs allowed'), false);
+    }
+  };
+  
+  const upload = multer({
+    storage: storage,
+    limits: {
+      fileSize: 1024 * 1024 * 5
+    },
+    fileFilter: fileFilter
+  });
 
 // get all 
 
@@ -19,34 +49,75 @@ router.get('/:id', getRestaurant, (req, res) => {
     res.json(res.restaurant)
 })
 
+// user restaurants
+
+router.get('/userRestaurants/:userId', async (req, res) => {
+  try {
+  const restaurants = await Restaurant.find({
+    founder: req.params.userId
+  })
+      res.json(restaurants)
+  } catch (error) {
+      res.status(500).json({message: error.message})
+  }
+})
+
 // create 
 
-router.post('/', async (req, res) => {
+router.post('/:userId', upload.single('logo'), async (req, res) => {
 
-    const { name, logo, slogan, type, cities, priceRange } = req.body
+    const { name, slogan, type, cities, priceRange } = req.body
 
-    const newRestaurant = new Restaurant({
+    if (!req.file) {
+      return res.status(401).json({
+        message: 'Logo not found'
+      })
+    } else {
+      const newRestaurant = new Restaurant({
+        _id: new mongoose.Types.ObjectId(),
         name: name,
-        logo: logo,
+        logo: req.file.path,
         slogan: slogan,
         type: type,
         cities: cities,
-        priceRange: priceRange
+        priceRange: priceRange,
+        founder: req.params.userId
     })
+
+    const foundUser = await User.findById(req.params.userId)
+    await foundUser.restaurants.push(newRestaurant._id)
 
     try {
         await newRestaurant.save()
-        res.status(201).json(newRestaurant)
+        await foundUser.save()
+        res.status(201).json({
+          status: 200
+        })
     } catch (err) {
-        res.status(400).json({message: err.message})
+        res.status(400).json({message: 'Check Inputs'})
     }
+  }
 
 })
 
 // delete 
 
-router.delete('/:id', getRestaurant, async (req, res) => {
+router.delete('/:id/:userId', getRestaurant, async (req, res) => {
+
+    const foundUser = await User.findById(req.params.userId)
+
+    const index = foundUser.restaurants.findIndex(restaurant => restaurant.toString() === req.params.id);
+
+    if (index !== -1) {
+        foundUser.restaurants.splice(index, 1)
+    }
+
+    await Food.deleteMany({
+      restaurant: req.params.id
+    })
+
     try {
+        await foundUser.save()
         await res.restaurant.remove()
         res.status(200).json({ message: 'successfully deleted the restaurant' })
     } catch (err) {
@@ -59,7 +130,7 @@ router.delete('/:id', getRestaurant, async (req, res) => {
 async function getRestaurant(req, res, next) {
     let restaurant
     try {
-        restaurant = await Restaurant.findById(req.params.id)
+        restaurant = await Restaurant.findById(req.params.id).populate('foods')
         if (restaurant === null) {
           return res.status(404).json({ message: 'cannot find resturant' })
         }
@@ -70,6 +141,5 @@ async function getRestaurant(req, res, next) {
     res.restaurant = restaurant
     next()
 }
-
 
 module.exports = router

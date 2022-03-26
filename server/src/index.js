@@ -12,18 +12,23 @@ const cors = require('cors')
 app.use(cors())
 
 app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
+app.use('/uploads', express.static('uploads'));
 
 mongoose.connect(process.env.DATABASE_URL)
 const db = mongoose.connection
 db.on('error', error  => console.error(error))
 db.once('open', () => console.log('connected to Database'))
 
+
 const restaurantsRouter = require('./routes/restaurants')
 app.use('/restaurants', restaurantsRouter)
 
-const menusRouter = require('./routes/menus')
-app.use('/menus', menusRouter)
+const foodRouter = require('./routes/foods')
+app.use('/foods', foodRouter)
+
+const userAuthRouter = require('./routes/userAuth')
+app.use('/userAuth', userAuthRouter)
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

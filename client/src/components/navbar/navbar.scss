@@ -3,7 +3,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 300px;
+  padding: 20px 100px;
   background-color: #676fa3;
   position: relative;
 
@@ -15,7 +15,7 @@
 .navbar__list-b {
   display: flex;
   align-items: center;
-  width: 330px;
+  width: 400px;
   justify-content: space-between;
 
   li {
@@ -60,7 +60,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 300px;
+  padding: 20px 100px;
   background-color: #f7f9ff;
   position: relative;
 
@@ -72,7 +72,7 @@
 .navbar__list-w {
   display: flex;
   align-items: center;
-  width: 330px;
+  width: 400px;
   justify-content: space-between;
 
   li {
@@ -211,19 +211,19 @@
 
 @media screen and (max-width: 1750px) {
   .navbar-b {
-    padding: 10px 200px;
+    padding: 10px 100px;
   }
   .navbar-w {
-    padding: 10px 200px;
+    padding: 10px 100px;
   }
 }
 
 @media screen and (max-width: 1450px) {
   .navbar-b {
-    padding: 10px 100px;
+    padding: 10px 50px;
   }
   .navbar-w {
-    padding: 10px 100px;
+    padding: 10px 50px;
   }
 }
 
@@ -232,7 +232,7 @@
     padding: 10px 30px;
   }
   .navbar__list-w {
-    width: 300px;
+    width: 350px;
     li {
       font-size: 1rem;
     }
@@ -241,7 +241,7 @@
     padding: 10px 30px;
   }
   .navbar__list-b {
-    width: 300px;
+    width: 350px;
     li {
       font-size: 1rem;
     }

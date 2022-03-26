@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 
 const ExploreRestaurant = ({restaurant}) => {
-  return <Link className='explore__restaurant' to={`/restaurant/${restaurant.id}`} >
+
+  return <Link className='explore__restaurant' to={`/restaurant/${restaurant._id}`} >
         <div className="explore__restaurant-logo">
-        <img src={restaurant.logo} alt="restaurant" />
+        <img src={`http://localhost:5000/${restaurant.logo}`} alt="restaurant" />
         </div>
         <div className="explore__restaurant-info">
           <h2>{restaurant.name}</h2>

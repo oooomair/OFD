@@ -1,17 +1,31 @@
 import kfclogo from '../../../assets/kfc.png'
 import {Link} from 'react-router-dom'
+import { GlobalContext } from '../../../context/GlobalContext'
+import { useContext } from 'react'
+import useFetch from '../../other/useFetch'
 
 const SellerRestaurants = () => {
+  
+  const {user} = useContext(GlobalContext)
+  const {data: restaurants, isPending, error} = useFetch(`http://localhost:5000/restaurants/userRestaurants/${user._id}`)
+
   return (
     <div className='seller__seller-restaurants' >
         <h1>Restaurants</h1>
-        <button>ADD</button>
+        <Link to={'/createRestaurant'} >
+          <button>ADD</button>
+        </Link>
         <div className="seller__restaurants-container">
-          <Link to={'/sellerRestaurant'}>
-            <img src={kfclogo} alt="logo" /> 
-          </Link>
+          {error && <h1>error</h1>}
+          {isPending && <div className="dot-revolution"></div>} 
+          {restaurants && restaurants.map(restaurant => {
+            return (
+            <Link key={restaurant._id} to={`/sellerRestaurant/${restaurant._id}`}>
+              <img src={`http://localhost:5000/${restaurant.logo}`} alt="logo" /> 
+            </Link>
+            )})
+          }
         </div>
-
     </div>
   )
 }

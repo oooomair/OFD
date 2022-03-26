@@ -11,21 +11,27 @@ import Seller from '../sellerCave/Seller';
 import SellerRestaurant from '../sellerRestaurant/SellerRestaurant';
 import CreateRestaurant from '../createRestaurant/CreateRestaurant';
 import Addfood from '../addFood/Addfood';
+import AuthorizedRoute from '../authorizedRoute/AuthorizedRoute';
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<><NavbarB/><Home/></>} />
-        <Route path='/explore' element={<><NavbarW/><Explore/> </>} />
-        <Route path='/restaurant/:id' element={<><NavbarB/><Restaurant/></>}/>
-        <Route path='/cart' element={<><NavbarW/><Cart/></>}/>
+        
+        <Route path='/' element={<><NavbarB/><Home/></>}/>
         <Route path='/signup' element={<><NavbarW/><SignUp/></>}/>
         <Route path='/login' element={<><NavbarW/><Login/></>}/>
+
+        <Route element={<AuthorizedRoute/>}>
+        <Route path='/explore' element={<><NavbarW/><Explore/></>} />
+        <Route path='/restaurant/:id' element={<><NavbarB/><Restaurant/></>}/>
+        <Route path='/cart' element={<><NavbarW/><Cart/></>}/>
         <Route path='/seller' element={<><NavbarB/><Seller/></>}/>
-        <Route path='/sellerRestaurant' element={<><NavbarW/><SellerRestaurant/></>}/>
+        <Route path='/sellerRestaurant/:id' element={<><NavbarW/><SellerRestaurant/></>}/>
         <Route path='/createRestaurant' element={<><NavbarW/><CreateRestaurant/></>}/>
-        <Route path='/addFood' element={<><NavbarW/><Addfood/></>}/>
+        <Route path='/addFood/:id' element={<><NavbarW/><Addfood/></>}/>
+        </Route>
+        
       </Routes>
     </div>
   );

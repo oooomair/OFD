@@ -1,11 +1,11 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchData = useCallback(() => {
+  useEffect(() => {
       fetch(url)
       .then(res => {
         if (!res.ok) { // error coming back from server
@@ -24,10 +24,6 @@ const useFetch = (url) => {
         setError(err.message);
       })
   }, [url])
-
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
 
   return { data, isPending, error};
 }

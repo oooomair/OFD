@@ -1,14 +1,53 @@
 import './login.scss'
+import { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { GlobalContext } from '../../context/GlobalContext'
+
 
 const Login = () => {
+
+	const {setUser} = useContext(GlobalContext)
+
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [message, setMessage] = useState()
+
+  let navigate = useNavigate()
+
+  const onLogin = async () => {
+    
+      const user = { username, password };
+    
+      const res = await fetch('http://localhost:5000/userAuth/login', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user)
+      })
+
+      const data = await res.json()
+
+      if (data.user) {
+        console.log(data.foundUser);
+        setUser(data.foundUser)
+        localStorage.setItem('token', data.token)
+        setUsername('')
+        setPassword('')
+        navigate('/', {replace: true})
+      } else {
+        setMessage('check credentials')
+      }
+    
+    }
+
   return <div className='login' >
       <h1>Login</h1>
       <div className="login__info">
+        <span>{message}</span>
         <label htmlFor="username">Username</label>
-        <input autocomplete='off' id='username' type="text" />
+        <input value={username} onChange={(e) => setUsername(e.target.value)} autoComplete='off' id='username' type="text" />
         <label htmlFor="password">Password</label>
-        <input autocomplete='off' id='confirm-username'  type="text" />
-        <button>Login</button>
+        <input value={password} onChange={(e) => setPassword(e.target.value)} autoComplete='off' id='confirm-username'  type="text" />
+        <button onClick={onLogin} >Login</button>
       </div>
   </div>;
 };

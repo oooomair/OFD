@@ -10,8 +10,9 @@
     color: #ff5959;
   }
   h2 {
-    font-size: 4rem;
+    font-size: 3.2rem;
     color: #ff5959;
+    margin-top: 10px;
   }
 }
 
@@ -19,7 +20,7 @@
   display: flex;
   flex-flow: column;
   width: 100%;
-  margin: 20px 0;
+  margin: 10px 0;
   width: 800px;
   span {
     font-size: 1.2rem;
@@ -33,24 +34,42 @@
     border: none;
     padding: 0 10px;
     font-size: 1.1rem;
+    &[type=file] {
+      width: max-content;
+      background-color: initial;
+      height: max-content;
+      &::file-selector-button {
+        margin-right: 10px;
+        background-color: #ff5959;
+        border: none;
+        color: #f7f9ff;
+        padding: 10px 40px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+  i {
+    margin: 10px 0 0 10px  ;
+  }
+  h5 {
+    align-self: center;
+    margin: 20px 0 0 0;
   }
   button {
     background-color: #ff5959;
-    width: 200px;
     border-radius: 5px;
     border: none;
     color: #f7f9ff;
     height: 35px;
     font-size: 1rem;
+    width: 90%;
+    align-self: center;
+    margin-top: 50px;
     cursor: pointer;
     transition: all ease 0.3s;
     &:hover {
       background-color: #fd5353;
-    }
-    &:last-of-type {
-      width: 90%;
-      align-self: center;
-      margin-top: 50px;
     }
   }
 }
@@ -128,10 +147,7 @@
   .create-restaurant__form {
     width: 450px;
     button {
-      width: 150px;
-      &:last-of-type {
-        width: 100%;
-      }
+      width: 100%;
     }
   }
   .create-restaurant__cities-cont {
@@ -158,7 +174,16 @@
   }
   .create-restaurant__form {
     width: 350px;
-  }
+    input {
+      &[type=file] {
+        font-size: 0.6rem;
+        width: 250px;
+        &::file-selector-button {
+          font-size: 0.9rem;
+        }
+      }
+    }
+}
 }
 
 @media screen and (max-width: 410px) {

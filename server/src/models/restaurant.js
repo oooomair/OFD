@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
-const restaurantsSchema = new mongoose.Schema({
+const restaurantSchema = new mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
     name: {
         type: String,
         required: true
@@ -24,7 +25,13 @@ const restaurantsSchema = new mongoose.Schema({
     priceRange: {
         type: String,
         required: true  
-    }
+    },
+    sales: {
+        type: Number,
+        default: 0
+    },
+    foods: [{type: mongoose.Schema.Types.ObjectId, ref: 'Food'}],
+    founder: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
 }) 
 
-module.exports = new mongoose.model('restaurants', restaurantsSchema);
+module.exports = new mongoose.model('Restaurant', restaurantSchema);

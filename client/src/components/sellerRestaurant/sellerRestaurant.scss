@@ -1,6 +1,7 @@
 .seller-restaurant {
   background-color: #f7f9ff;
   width: 100%;
+  min-height: 90vh;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -107,6 +108,7 @@
   }
   p {
     font-size: 1.3rem;
+    margin: 10px 0;
   }
   button {
     margin-top: 5px;

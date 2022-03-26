@@ -3,6 +3,7 @@ import SellerRestaurantFoods from './sellerRestaurantComponents/SellerRestaurant
 import SellerRestaurantInfo from './sellerRestaurantComponents/SellerRestaurantInfo'
 
 const SellerRestaurant = () => {
+  
   return (
     <div className='seller-restaurant' >
         <h1>Seller Cave</h1>
