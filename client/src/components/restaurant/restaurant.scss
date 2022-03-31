@@ -64,7 +64,7 @@
 
 @media screen and (max-width: 700px) {
   .restaurant__restaurant-land {
-    height: 85vh;
+    height: 500px;
   }
   .restaurant__stuff {
     flex-flow: column;
@@ -92,7 +92,7 @@
       font-size: 3rem;
     }
     img {
-      width: 150px;
+      width: 200px;
       display: block;
     }
     span {
@@ -111,7 +111,7 @@
   .restaurant__info {
     padding: 0;
     img {
-      width: 150px;
+      width: 200px;
       display: block;
     }
     span {
@@ -131,6 +131,9 @@
   align-items: center;
   padding: 50px 0;
   width: 100%;
+  h6 {
+    font-size: 1.7rem;
+  }
 }
 
 .restaurant__restaurant-food {
@@ -151,6 +154,7 @@
   display: flex;
   flex-flow: column;
   width: 400px;
+  margin: 0 20px;
   overflow-x: hidden;
   h1 {
     color: #ff5959;

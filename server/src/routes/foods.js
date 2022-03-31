@@ -67,6 +67,24 @@ router.post('/:restaurantId', upload.single('image'), async (req, res) => {
 
 })
 
+// update 
+
+router.patch('/:id', (req, res) => {
+
+  Food.findByIdAndUpdate(req.params.id, {price: req.body.changedPrice}, {new: true}).then((food) => {
+      if (!food) {
+          return res.status(404).json({
+              message: 'food not found'
+          });
+      }
+      res.status(200).json({
+          message: 'price updated'
+      })
+  }).catch((error) => {
+      res.status(500).send(error);
+  })
+})
+
 // delete 
 
 router.delete('/:id/:restaurantId', getFood, async (req, res) => {

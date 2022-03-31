@@ -1,10 +1,33 @@
 import {AiOutlinePlus} from 'react-icons/ai'
 import {BiMinus} from 'react-icons/bi'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import {GlobalContext} from '../../../context/GlobalContext'
 
 const RestaurantFood = ({food}) => {
 
     const [foodAmmount, setFoodAmmount] = useState(0)
+
+    const {user} = useContext(GlobalContext)
+
+    const addToCart = () => {
+
+        const cartItem = {
+             foodId: food._id,
+             ammount: foodAmmount,
+            } 
+
+        fetch(`http://localhost:5000/carts/${user._id}`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(cartItem)
+        }).then(res => {
+            return res.json()
+        }).then(data => {
+            console.log(data);
+        }).catch(err => {
+            console.log(err);
+        })
+    }
 
   return <div className='restaurant__restaurant-food' >
       <div className="restaurant__food-img">
@@ -26,7 +49,10 @@ const RestaurantFood = ({food}) => {
                     <span>{foodAmmount}</span>
                     <AiOutlinePlus onClick={() => setFoodAmmount(foodAmmount + 1)} />
                 </div>
-                <h3>Confirm</h3>
+                <h3 onClick={() => {
+                    setFoodAmmount(0)
+                     addToCart()
+                    }}>Confirm</h3>
                 </>}
           </div>
       </div>

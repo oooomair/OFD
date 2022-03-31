@@ -11,8 +11,6 @@ export const NavbarB = () => {
 
     const {user, setUser} = useContext(GlobalContext)
 
-    console.log(user);
-
     const onBurgerClick = () => {
         setBurgerClick(!burgerClick)
     }
@@ -22,34 +20,39 @@ export const NavbarB = () => {
     let navigate = useNavigate()
 
     const toSeller = () => {
-        if (user.seller) {
-            navigate('/seller')
+        if (user) {
+            if (user.seller) {
+                navigate('/seller')
+            } else {
+                Swal.fire({
+                    title: 'Do you want to become a seller?',
+                    text: "By clicking yes you agree to always be amazing just like you are right now :')",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: 'No',
+                    confirmButtonText: 'Yes'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: 'Lets Go',
+                            text: 'Now you can make (fake) money and get Rich',
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Yay'
+                        }).then(() => {
+                            fetch(`http://localhost:5000/userAuth/${user._id}`, 
+                            { 
+                              method: "PATCH"
+                            });
+                            navigate('/seller', {replace: true})
+                          }
+                        )}
+                  })
+            }
         } else {
-            Swal.fire({
-                title: 'Do you want to become a seller?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                cancelButtonText: 'No',
-                confirmButtonText: 'Yes'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: 'Lets Go',
-                        text: 'Now you can make (fake) money and get Rich',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Yay'
-                    }).then(() => {
-                        fetch(`http://localhost:5000/userAuth/${user._id}`, 
-                        { 
-                          method: "PATCH"
-                        });
-                        navigate('/seller', {replace: true})
-                      }
-                    )}
-              })
+            navigate('/seller')
         }
     }
 
@@ -127,34 +130,39 @@ export const NavbarW = () => {
     let navigate = useNavigate()
 
     const toSeller = () => {
-        if (user.seller) {
-            navigate('/seller')
+        if (user) {
+            if (user.seller) {
+                navigate('/seller')
+            } else {
+                Swal.fire({
+                    title: 'Do you want to become a seller?',
+                    text: "By clicking yes you agree to always be amazing just like you are right now :')",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: 'No',
+                    confirmButtonText: 'Yes'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: 'Lets Go',
+                            text: 'Now you can make (fake) money and get Rich',
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Yay'
+                        }).then(() => {
+                            fetch(`http://localhost:5000/userAuth/${user._id}`, 
+                            { 
+                              method: "PATCH"
+                            });
+                            navigate('/seller', {replace: true})
+                          }
+                        )}
+                  })
+            }
         } else {
-            Swal.fire({
-                title: 'Do you want to become a seller?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                cancelButtonText: 'No',
-                confirmButtonText: 'Yes'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: 'Lets Go',
-                        text: 'Now you can make (fake) money and get Rich',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Yay'
-                    }).then(() => {
-                        fetch(`http://localhost:5000/userAuth/${user._id}`, 
-                        { 
-                          method: "PATCH"
-                        });
-                        navigate('/seller', {replace: true})
-                      }
-                    )}
-              })
+            navigate('/seller')
         }
     }
 

@@ -1,9 +1,22 @@
 import CartItem from "./CartItem";
 
+const CartItems = ({cartItems, removeItem}) => {
 
-const CartItems = () => {
   return <div className='cart__cart-items' >
-      <CartItem/>
+      {cartItems.length >= 1 ? cartItems.map(cartItem => {
+      return <CartItem key={cartItem._id} removeItem={removeItem} cartItem={cartItem} />
+      }) 
+      : 
+      <>
+      <h6>Cart Empty</h6>
+      <div className='cart__cart-item' >
+        <div className="cart__food-img">
+        </div>
+        <div className="cart__food-info">
+        </div>
+    </div>
+    </>
+      }
   </div>;
 };
 

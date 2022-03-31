@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const Cart = require('../models/cart')
 
 const verifyJWT = (req, res, next) => {
 
@@ -110,7 +111,9 @@ router.get('/isUserAuth', verifyJWT, (req, res) => {
     .populate('restaurants')
     .exec()
     .then(user => {
-    res.send({isAuth: true, user: user})
+        res.status(200).json({isAuth: true, user: user})
+    }).catch(err => {
+        res.status(400).json({isAuth: false})
     })
 })
 

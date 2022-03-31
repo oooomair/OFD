@@ -10,7 +10,7 @@ const [message, setMessage] = useState()
 
 
 const onRegister = async () => {
-if (password.length > 7) {
+if (password.length >= 7) {
   if (password === confirmPassword) {
 
     const newUser = { username, password };

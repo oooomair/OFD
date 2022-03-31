@@ -25,16 +25,23 @@
   width: 100%;
   margin-right: 100px;
   padding: 30px 20px;
+  h6{
+    align-self: center;
+    font-size: 2rem;
+    width: max-content;
+  }
 }
 
 .cart__cart-item {
   display: flex;
+  margin: 10px 0;
 }
 
 .cart__food-img {
   width: 150px;
+  display: flex;
+  align-items: center;
   img {
-    height: 100%;
     width: 100%;
   }
 }
@@ -104,6 +111,11 @@
     padding: 10px 60px;
     background-color: #ff5959;
     border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    &:hover{
+      background-color: #ff3838;
+    }
   }
 }
 

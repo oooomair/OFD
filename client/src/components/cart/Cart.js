@@ -1,14 +1,36 @@
 import './cart.scss'
 import CartCheckout from './cartComponents/CartCheckout';
 import CartItems from './cartComponents/CartItems';
+import { useContext, useEffect, useState } from 'react';
+import {GlobalContext} from '../../context/GlobalContext'
+import useFetch from "../other/useFetch";
 
-const Cart = () => {
+const Cart = () => { 
+
+  const [cartItemsState, setCartItemState] = useState(null)
+
+  const {user} = useContext(GlobalContext)
+  const {data: cartItems, isPending, error} = useFetch(`http://localhost:5000/carts/${user._id}`)
+
+  console.log(cartItemsState);
+
+  useEffect(() => {
+    cartItems && setCartItemState(cartItems) 
+  }, [cartItems])
+
+
+  const removeItem = id => {
+    setCartItemState(cartItemsState.filter(({ _id }) => _id !== id))
+  }
+
   return <div className='cart' >
     <h1>CART</h1>
-    <div className='cart__cart-cart' >
-      <CartItems/>
-      <CartCheckout/>
-     </div>;
+    {error && <h5>error</h5>} 
+    {isPending && <div className="dot-revolution"></div>} 
+    {cartItemsState && <div className='cart__cart-cart' >
+      <CartItems removeItem={removeItem} cartItems={cartItemsState} />
+      <CartCheckout cartItems={cartItemsState}/>
+     </div>}
   </div>;
 };
 

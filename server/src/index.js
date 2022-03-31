@@ -30,6 +30,9 @@ app.use('/foods', foodRouter)
 const userAuthRouter = require('./routes/userAuth')
 app.use('/userAuth', userAuthRouter)
 
+const cartRouter = require('./routes/carts')
+app.use('/carts', cartRouter) 
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`app running on port ${PORT}`);

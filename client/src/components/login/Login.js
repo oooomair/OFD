@@ -27,7 +27,6 @@ const Login = () => {
       const data = await res.json()
 
       if (data.user) {
-        console.log(data.foundUser);
         setUser(data.foundUser)
         localStorage.setItem('token', data.token)
         setUsername('')
