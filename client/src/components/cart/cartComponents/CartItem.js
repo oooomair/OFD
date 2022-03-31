@@ -23,7 +23,7 @@ const CartItem = ({cartItem, removeItem}) => {
         const incrim = { incrim: 'substract' }
 
         fetch(
-            `http://localhost:5000/carts/${cartItem._id}`,
+            `https://o-food-delivery.herokuapp.com/carts/${cartItem._id}`,
           {
             method: 'PATCH',
             headers: { "Content-Type": "application/json" },
@@ -49,7 +49,7 @@ const CartItem = ({cartItem, removeItem}) => {
         const incrim = { incrim: 'add' }
 
         fetch(
-          `http://localhost:5000/carts/${cartItem._id}`,
+          `https://o-food-delivery.herokuapp.com/carts/${cartItem._id}`,
           {
             method: 'PATCH',
             headers: { "Content-Type": "application/json" },
@@ -67,7 +67,7 @@ const CartItem = ({cartItem, removeItem}) => {
     const onDelete = () => {
         removeItem(cartItem._id)
         fetch(
-            `http://localhost:5000/carts/${cartItem._id}/${user._id}`,
+            `https://o-food-delivery.herokuapp.com/carts/${cartItem._id}/${user._id}`,
             {
               method: 'DELETE'
             }
@@ -90,7 +90,7 @@ const CartItem = ({cartItem, removeItem}) => {
   return (
     <div className='cart__cart-item' >
         <div className="cart__food-img">
-            <img src={`http://localhost:5000/${cartItem.food.image}`} alt="food" />
+            <img src={`https://o-food-delivery.herokuapp.com/${cartItem.food.image}`} alt="food" />
         </div>
       <div className="cart__food-info">
         <h3>{cartItem.food.name}</h3>
