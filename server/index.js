@@ -21,16 +21,16 @@ db.on('error', error  => console.error(error))
 db.once('open', () => console.log('connected to Database'))
 
 
-const restaurantsRouter = require('./routes/restaurants')
+const restaurantsRouter = require('./src/routes/restaurants')
 app.use('/restaurants', restaurantsRouter)
 
-const foodRouter = require('./routes/foods')
+const foodRouter = require('./src/routes/foods')
 app.use('/foods', foodRouter)
 
-const userAuthRouter = require('./routes/userAuth')
+const userAuthRouter = require('./src/routes/userAuth')
 app.use('/userAuth', userAuthRouter)
 
-const cartRouter = require('./routes/carts')
+const cartRouter = require('./src/routes/carts')
 app.use('/carts', cartRouter) 
 
 const PORT = process.env.PORT || 5000;
