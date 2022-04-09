@@ -88,6 +88,7 @@ router.delete('/:id/:userId', getCartItem, async (req, res) => {
 
     if (index !== -1) {
         foundUser.cart.splice(index, 1)
+        
     }
 
     try {
