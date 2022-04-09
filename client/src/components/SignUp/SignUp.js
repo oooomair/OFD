@@ -1,7 +1,10 @@
 import './signup.scss'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
+
+  let navigate = useNavigate()
 
 const [username, setUsername] = useState('')
 const [password, setPassword] = useState('')
@@ -29,6 +32,7 @@ if (password.length >= 7) {
     setPassword('')
     setconfirmPassword('')
     setMessage('')
+    navigate('/login', {replace: true})
   }
   } else {
     setMessage('password not the same')
