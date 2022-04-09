@@ -14,6 +14,10 @@ const foodSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    sales: {
+        type: Number,
+        default: 0
+    },
     restaurant: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Restaurant',

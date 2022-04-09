@@ -1,4 +1,3 @@
-import kfclogo from '../../../assets/kfc.png'
 import {Link} from 'react-router-dom'
 import { GlobalContext } from '../../../context/GlobalContext'
 import { useContext } from 'react'

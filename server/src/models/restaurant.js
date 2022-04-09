@@ -26,10 +26,6 @@ const restaurantSchema = new mongoose.Schema({
         type: String,
         required: true  
     },
-    sales: {
-        type: Number,
-        default: 0
-    },
     foods: [{type: mongoose.Schema.Types.ObjectId, ref: 'Food'}],
     founder: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
 }) 

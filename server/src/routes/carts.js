@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../models/user')
 const mongoose = require('mongoose')
 const CartItem = require('../models/cart')
+const Food = require('../models/food')
 
 // get
 
@@ -96,6 +97,46 @@ router.delete('/:id/:userId', getCartItem, async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
+})
+
+// delete all
+
+router.delete('/all/:userId', async (req, res) => {
+
+  const foundUser = await User.findById(req.params.userId).populate('cart')
+
+  foundUser.cart.map(cartItem => {
+
+    let newSale = cartItem.ammount * cartItem.food.price
+    let oldSale = cartItem.food.sales
+
+    Food.findByIdAndUpdate(cartItem.food._id, {sales: oldSale + newSale }, {new: true}).then((food) => {
+      if (!food) {
+          return res.status(404).json({
+              message: 'food not found'
+          });
+      }
+      res.status(200).json({
+          message: 'price updated'
+      })
+  }).catch((error) => {
+      res.status(500).send(error);
+  })
+
+  })
+
+    foundUser.cart.splice(0, foundUser.cart.length)
+
+    await CartItem.deleteMany({
+      user: req.params.userId
+    })
+
+  try {
+      await foundUser.save()
+      res.status(200).json({ message: 'successfully cleared the cart' })
+  } catch (err) {
+      res.status(500).json({ message: err.message })
+  }
 })
 
 // get one middleware
