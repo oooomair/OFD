@@ -26,6 +26,19 @@ router.post('/:userId',  async (req, res) => {
 
     const { foodId, ammount } = req.body
 
+    const foundCartItem = await CartItem.findOne({food: foodId})
+
+    if (foundCartItem) {
+     CartItem.findByIdAndUpdate(foundCartItem._id, {ammount: foundCartItem.ammount + ammount }, {new: true}).then((cartItem) => {
+      if (!cartItem) {
+        return res.status(404).json({
+            message: 'cartItem not found'
+        });
+    }
+    }).catch((error) => {
+        res.status(500).send(error);
+    })
+    } else {
       const newCartItem = new CartItem({
         _id: new mongoose.Types.ObjectId(),
         food: foodId,
@@ -44,6 +57,7 @@ router.post('/:userId',  async (req, res) => {
         })
     } catch (err) {
         res.status(400).json({message: err.message})
+    }
     }
   }
 )
@@ -102,42 +116,40 @@ router.delete('/:id/:userId', getCartItem, async (req, res) => {
 
 // delete all
 
-router.delete('/all/:userId', async (req, res) => {
+router.delete('/:userId', async (req, res) => {
 
   const foundUser = await User.findById(req.params.userId).populate('cart')
 
-  foundUser.cart.map(cartItem => {
+  foundUser.cart.map( async cartItem => {
 
-    let newSale = cartItem.ammount * cartItem.food.price
-    let oldSale = cartItem.food.sales
+    let foundFood = await Food.findById(cartItem.food)
 
-    Food.findByIdAndUpdate(cartItem.food._id, {sales: oldSale + newSale }, {new: true}).then((food) => {
-      if (!food) {
-          return res.status(404).json({
-              message: 'food not found'
-          });
-      }
-      res.status(200).json({
-          message: 'price updated'
-      })
-  }).catch((error) => {
-      res.status(500).send(error);
+    let newSale = cartItem.ammount * foundFood.price
+    let oldSale = foundFood.sales
+
+     Food.findByIdAndUpdate(cartItem.food._id, {sales: oldSale + newSale }, {new: true}).then((food) => {
+       if (!food) {
+           return res.status(404).json({
+               message: 'food not found'
+           });
+       }
+   }).catch((error) => {
+       res.status(500).send(error);
+   })
   })
 
-  })
+     foundUser.cart.splice(0, foundUser.cart.length)
 
-    foundUser.cart.splice(0, foundUser.cart.length)
+     await CartItem.deleteMany({
+       user: req.params.userId
+     })
 
-    await CartItem.deleteMany({
-      user: req.params.userId
-    })
-
-  try {
-      await foundUser.save()
-      res.status(200).json({ message: 'successfully cleared the cart' })
-  } catch (err) {
-      res.status(500).json({ message: err.message })
-  }
+   try {
+       await foundUser.save()
+     res.status(200).json({ message: 'successfully cleared the cart' })
+   } catch (err) { 
+       res.status(500).json({ message: err.message })
+   }
 })
 
 // get one middleware

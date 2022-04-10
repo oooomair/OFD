@@ -196,6 +196,11 @@
     border-radius: 5px;
     font-size: 0.9rem;
     cursor: pointer;
+    animation: slide-right 0.2s;
+  }
+  h5{
+    font-size: 1.1rem;
+    margin-left: 20px;
     animation: slide-right 0.5s;
   }
 }

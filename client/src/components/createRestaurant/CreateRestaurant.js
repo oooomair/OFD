@@ -75,7 +75,7 @@ const CreateRestaurant = () => {
     if (chicago || dubai || karachi) {
       if ($ | $$ | $$$) {
         fetch(
-          `https://o-food-delivery.herokuapp.com/restaurants/${user._id}`,
+          `/restaurants/${user._id}`,
           {
             method: 'POST',
             body: formData

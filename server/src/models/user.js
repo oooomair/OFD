@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
         default: false
     },
     restaurants: [{type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant'}],
-    cart: [{type: mongoose.Schema.Types.ObjectId, ref: 'Cart'}]
+    cart: [{type: mongoose.Schema.Types.ObjectId, ref: 'CartItem'}]
 }) 
 
 module.exports = new mongoose.model('User', userSchema);

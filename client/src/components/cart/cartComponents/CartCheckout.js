@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import nyan from '../../../assets/nyan.gif'
 import congrats from '../../../assets/congrats.gif'
 import { useContext } from 'react';
 import { GlobalContext } from '../../../context/GlobalContext';
@@ -30,7 +29,7 @@ const CartCheckout = ({cartItems}) => {
     })
 
     fetch(
-      `https://o-food-delivery.herokuapp.com/carts/all/${user._id}`,
+      `/carts/${user._id}`,
       {
         method: 'DELETE'
       }

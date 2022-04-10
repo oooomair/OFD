@@ -1,11 +1,12 @@
 import {AiOutlinePlus} from 'react-icons/ai'
 import {BiMinus} from 'react-icons/bi'
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import {GlobalContext} from '../../../context/GlobalContext'
 
 const RestaurantFood = ({food}) => {
 
     const [foodAmmount, setFoodAmmount] = useState(0)
+    const [added, setAdded] = useState(false)
 
     const {user} = useContext(GlobalContext)
 
@@ -16,7 +17,7 @@ const RestaurantFood = ({food}) => {
              ammount: foodAmmount,
             } 
 
-        fetch(`https://o-food-delivery.herokuapp.com/carts/${user._id}`, {
+        fetch(`/carts/${user._id}`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(cartItem)
@@ -27,22 +28,27 @@ const RestaurantFood = ({food}) => {
         }).catch(err => {
             console.log(err);
         })
+        setAdded(true)
     }
+
+    useEffect(() => {
+        setAdded(false)
+    }, [])
 
   return <div className='restaurant__restaurant-food' >
       <div className="restaurant__food-img">
-          <img src={`https://o-food-delivery.herokuapp.com/${food.image}`} alt="food" />
+          <img src={`/${food.image}`} alt="food" />
       </div>
       <div className="restaurant__food-info">
           <h1> {food.name} </h1>
-            <img src={`https://o-food-delivery.herokuapp.com/${food.image}`} alt="food" />
+            <img src={`/${food.image}`} alt="food" />
           <p> price = {food.price} eth </p>
           <div className="restaurant__add-food">
                { foodAmmount !== 0 ?
                <button style={{background: 'rgb(192, 192, 192)'}} >-_- </button>:
                <button onClick={() => setFoodAmmount(1)} >Add </button>
                }
-                {foodAmmount !== 0 &&
+                {foodAmmount !== 0 ?
                 <>
                 <div className='restaurant__food-incrim'>
                     <BiMinus onClick={() => setFoodAmmount(foodAmmount - 1)} />
@@ -53,7 +59,10 @@ const RestaurantFood = ({food}) => {
                     setFoodAmmount(0)
                      addToCart()
                     }}>Confirm</h3>
-                </>}
+                </>
+                :
+                added && <h5>Added</h5>
+                }
           </div>
       </div>
   </div>;

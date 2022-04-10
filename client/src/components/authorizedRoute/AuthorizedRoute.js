@@ -12,7 +12,7 @@ const AuthorizedRoute = () => {
 
 	useEffect(() => {
 		const abortController = new AbortController();
-		fetch('https://o-food-delivery.herokuapp.com/userAuth/isUserAuth', {
+		fetch('/userAuth/isUserAuth', {
 			signal: abortController.signal,
 			headers: {
 				"x-access-token": localStorage.getItem('token')

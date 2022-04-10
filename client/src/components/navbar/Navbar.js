@@ -42,7 +42,7 @@ export const NavbarB = () => {
                             confirmButtonColor: '#3085d6',
                             confirmButtonText: 'Yay'
                         }).then(() => {
-                            fetch(`https://o-food-delivery.herokuapp.com/userAuth/${user._id}`, 
+                            fetch(`/userAuth/${user._id}`, 
                             { 
                               method: "PATCH"
                             });
@@ -152,7 +152,7 @@ export const NavbarW = () => {
                             confirmButtonColor: '#3085d6',
                             confirmButtonText: 'Yay'
                         }).then(() => {
-                            fetch(`https://o-food-delivery.herokuapp.com/userAuth/${user._id}`, 
+                            fetch(`/userAuth/${user._id}`, 
                             { 
                               method: "PATCH"
                             });

@@ -10,7 +10,7 @@ const Cart = () => {
   const [cartItemsState, setCartItemState] = useState(null)
 
   const {user} = useContext(GlobalContext)
-  const {data: cartItems, isPending, error} = useFetch(`https://o-food-delivery.herokuapp.com/carts/${user._id}`)
+  const {data: cartItems, isPending, error} = useFetch(`/carts/${user._id}`)
 
   console.log(cartItemsState);
 

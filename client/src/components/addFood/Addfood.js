@@ -25,7 +25,7 @@ const Addfood = () => {
 		formData.append('price', price)
 
     fetch(
-			`https://o-food-delivery.herokuapp.com/foods/${id}`,
+			`/foods/${id}`,
 			{
 				method: 'POST',
 				body: formData

@@ -55,7 +55,7 @@ router.get('/userRestaurants/:userId', async (req, res) => {
   try {
   const restaurants = await Restaurant.find({
     founder: req.params.userId
-  })
+  }).populate('foods')
       res.json(restaurants)
   } catch (error) {
       res.status(500).json({message: error.message})
