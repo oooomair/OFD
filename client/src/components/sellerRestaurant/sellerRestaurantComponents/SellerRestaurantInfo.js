@@ -11,7 +11,7 @@ const SellerRestaurantInfo = () => {
 
 
   const {id} = useParams()
-  const {data: restaurant, isPending, error} = useFetch(`/restaurants/${id}`)
+  const {data: restaurant, isPending, error} = useFetch(`https://o-food-delivery.herokuapp.com/restaurants/${id}`)
 
   let restaurantSales = 0
 
@@ -39,7 +39,7 @@ const SellerRestaurantInfo = () => {
           'success'
         )
         fetch(
-          `/restaurants/${id}/${user._id}`,
+          `https://o-food-delivery.herokuapp.com/restaurants/${id}/${user._id}`,
           {
             method: 'DELETE'
           }

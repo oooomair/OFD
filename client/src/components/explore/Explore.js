@@ -4,7 +4,7 @@ import useFetch from '../other/useFetch'
 
 const Explore = () => {
 
-  const {data: restaurants, isPending, error} = useFetch(`/restaurants`)
+  const {data: restaurants, isPending, error} = useFetch(`https://o-food-delivery.herokuapp.com/restaurants`)
 
   return <div className='explore' >
       <h1>Restaurants</h1>

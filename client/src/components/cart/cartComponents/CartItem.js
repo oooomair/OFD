@@ -23,7 +23,7 @@ const CartItem = ({cartItem, removeItem}) => {
         const incrim = { incrim: 'substract' }
 
         fetch(
-            `/carts/${cartItem._id}`,
+            `https://o-food-delivery.herokuapp.com/carts/${cartItem._id}`,
           {
             method: 'PATCH',
             headers: { "Content-Type": "application/json" },
@@ -49,7 +49,7 @@ const CartItem = ({cartItem, removeItem}) => {
         const incrim = { incrim: 'add' }
 
         fetch(
-          `/carts/${cartItem._id}`,
+          `https://o-food-delivery.herokuapp.com/carts/${cartItem._id}`,
           {
             method: 'PATCH',
             headers: { "Content-Type": "application/json" },
@@ -67,7 +67,7 @@ const CartItem = ({cartItem, removeItem}) => {
     const onDelete = () => {
         removeItem(cartItem._id)
         fetch(
-            `/carts/${cartItem._id}/${user._id}`,
+            `https://o-food-delivery.herokuapp.com/carts/${cartItem._id}/${user._id}`,
             {
               method: 'DELETE'
             }

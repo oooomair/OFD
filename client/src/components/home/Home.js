@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
 		const abortController = new AbortController();
-		fetch('/userAuth/isUserAuth', {
+		fetch('https://o-food-delivery.herokuapp.com/userAuth/isUserAuth', {
 			signal: abortController.signal,
 			headers: {
 				"x-access-token": localStorage.getItem('token')

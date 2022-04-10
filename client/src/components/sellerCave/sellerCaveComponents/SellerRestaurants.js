@@ -6,7 +6,7 @@ import useFetch from '../../other/useFetch'
 const SellerRestaurants = () => {
   
   const {user} = useContext(GlobalContext)
-  const {data: restaurants, isPending, error} = useFetch(`/restaurants/userRestaurants/${user._id}`)
+  const {data: restaurants, isPending, error} = useFetch(`https://o-food-delivery.herokuapp.com/restaurants/userRestaurants/${user._id}`)
 
   return (
     <div className='seller__seller-restaurants' >

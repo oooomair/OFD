@@ -32,7 +32,7 @@ const SellerRestaurantFood = ({food, onDeleteFood}) => {
         )
         onDeleteFood(food._id)
         fetch(
-          `/foods/${food._id}/${id}`,
+          `https://o-food-delivery.herokuapp.com/foods/${food._id}/${id}`,
           {
             method: 'DELETE'
           }
@@ -52,7 +52,7 @@ const SellerRestaurantFood = ({food, onDeleteFood}) => {
     const hmmprice = { changedPrice }
 
     fetch(
-      `/foods/${food._id}`,
+      `https://o-food-delivery.herokuapp.com/foods/${food._id}`,
       {
         method: 'PATCH',
         headers: { "Content-Type": "application/json" },

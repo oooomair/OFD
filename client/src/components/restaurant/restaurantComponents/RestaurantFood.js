@@ -17,7 +17,7 @@ const RestaurantFood = ({food}) => {
              ammount: foodAmmount,
             } 
 
-        fetch(`/carts/${user._id}`, {
+        fetch(`https://o-food-delivery.herokuapp.com/carts/${user._id}`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(cartItem)
