@@ -18,8 +18,6 @@ const SellerRestaurantInfo = () => {
   restaurant && restaurant.foods.map(food => {
     restaurantSales = restaurantSales + food.sales
   })
-  
-  console.log(restaurant);
 
   const onDelete = () => {
 

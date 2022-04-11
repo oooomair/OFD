@@ -35,6 +35,12 @@ export const NavbarB = () => {
                     confirmButtonText: 'Yes'
                   }).then((result) => {
                     if (result.isConfirmed) {
+                        setUser(user => {
+                            return { 
+                              ...user, 
+                              seller: true
+                            }
+                          })
                         Swal.fire({
                             title: 'Lets Go',
                             text: 'Now you can make (fake) money and get Rich',
@@ -46,7 +52,7 @@ export const NavbarB = () => {
                             { 
                               method: "PATCH"
                             });
-                            navigate('/seller', {replace: true})
+                            navigate('/seller')
                           }
                         )}
                   })
@@ -145,6 +151,12 @@ export const NavbarW = () => {
                     confirmButtonText: 'Yes'
                   }).then((result) => {
                     if (result.isConfirmed) {
+                        setUser(user => {
+                            return { 
+                              ...user, 
+                              seller: true
+                            }
+                          })
                         Swal.fire({
                             title: 'Lets Go',
                             text: 'Now you can make (fake) money and get Rich',
