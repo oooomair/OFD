@@ -97,7 +97,7 @@ export const NavbarB = () => {
             <span></span>
             <span></span>
         </div>
-        {token ? <ul className={`${burgerClick && 'navbar-res-open'} navbar-res`}>
+        {token ? <ul onClick={onBurgerClick} className={`${burgerClick && 'navbar-res-open'} navbar-res`}>
         <Link style={{ color:'inherit', textDecoration:'none' }} to={'/explore'} >
             <li>Explore</li>
         </Link>    
@@ -108,7 +108,7 @@ export const NavbarB = () => {
             <li onClick={onLogout} >LogOut</li>
         </ul> 
         :
-        <ul className={`${burgerClick && 'navbar-res-open'} navbar-res`}>
+        <ul onClick={onBurgerClick} className={`${burgerClick && 'navbar-res-open'} navbar-res`}>
         <Link style={{ color:'inherit', textDecoration:'none' }} to={'/login'} >
             <li>Login</li>
         </Link>    
@@ -213,7 +213,7 @@ export const NavbarW = () => {
             <span></span>
             <span></span>
         </div>
-       {token ? <ul className={`${burgerClick && 'navbar-res-open'} navbar-res`}>
+       {token ? <ul onClick={onBurgerClick} className={`${burgerClick && 'navbar-res-open'} navbar-res`}>
         <Link style={{ color:'inherit', textDecoration:'none' }} to={'/explore'} >
             <li>Explore</li>
         </Link>    
@@ -224,7 +224,7 @@ export const NavbarW = () => {
             <li onClick={onLogout} >LogOut</li>
         </ul>
         :
-        <ul className={`${burgerClick && 'navbar-res-open'} navbar-res`}>
+        <ul onClick={onBurgerClick} className={`${burgerClick && 'navbar-res-open'} navbar-res`}>
         <Link style={{ color:'inherit', textDecoration:'none' }} to={'/login'} >
             <li>Login</li>
         </Link>    

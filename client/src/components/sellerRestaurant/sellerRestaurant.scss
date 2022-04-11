@@ -94,7 +94,6 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  min-height: 350px;
   h3 {
     font-size: 2rem;
     color: #ff5959;
@@ -254,15 +253,17 @@
     }
     img {
       width: 120px;
+      margin-bottom: 15px;
     }
     span {
       font-size: 1rem;
     }
     p {
       font-size: 1rem;
-      margin-bottom: 10px;
+      margin-bottom: 2px;
     }
     button {
+      margin-top: 10px;
       width: 180px;
       height: 30px;
       font-size: 0.9rem;

@@ -202,7 +202,7 @@
     font-size: 1.1rem;
     margin-left: 20px;
     animation: slide-right 0.5s;
-  }
+  } 
 }
 
 .restaurant__food-incrim {
@@ -309,6 +309,7 @@
     }
     img {
       display: block;
+      margin-top: 15px;
     }
     p {
       font-size: 1.2rem;
@@ -321,6 +322,10 @@
       width: 150px;
     }
     h3 {
+      animation: slide-bottom 0.5s;
+    }
+    h5{
+      margin: 10px 0 0 0;
       animation: slide-bottom 0.5s;
     }
   }
