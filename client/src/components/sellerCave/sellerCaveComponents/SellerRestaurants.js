@@ -19,7 +19,7 @@ const SellerRestaurants = () => {
           {restaurants && restaurants.map(restaurant => {
             return (
             <Link key={restaurant._id} to={`/sellerRestaurant/${restaurant._id}`}>
-              <img src={`/${restaurant.logo}`} alt="logo" /> 
+              <img src={`https://o-food-delivery.herokuapp.com/${restaurant.logo}`} alt="logo" /> 
             </Link>
             )})
           }

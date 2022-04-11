@@ -12,11 +12,11 @@ const RestaurantLand = () => {
       {isPending && <div className="dot-revolution"></div>} 
       {restaurant && <div className="restaurant__stuff">
         <div className="restaurant__logo">
-            <img src={`/${restaurant.logo}`} alt="" />
+            <img src={`https://o-food-delivery.herokuapp.com/${restaurant.logo}`} alt="" />
         </div>
         <div className="restaurant__info">
             <h1> {restaurant.name} </h1>
-            <img src={`/${restaurant.logo}`} alt="" />
+            <img src={`https://o-food-delivery.herokuapp.com/${restaurant.logo}`} alt="" />
             <span> {restaurant.slogan} </span>
             <p> {restaurant.type} </p>
             <p> {restaurant.cities} </p>

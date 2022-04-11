@@ -64,7 +64,7 @@ const SellerRestaurantInfo = () => {
     {restaurant && <div className='seller-restaurant__seller-restaurant-info'>
       <h3> {restaurant.name} </h3>
         <div className="seller-restaurant__logo">
-            <img src={`/${restaurant.logo}`} alt="logo" />    
+            <img src={`https://o-food-delivery.herokuapp.com/${restaurant.logo}`} alt="logo" />    
         </div>
         <div className="seller-restaurant__details">
             <h2>{restaurant.name}</h2>

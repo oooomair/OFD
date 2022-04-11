@@ -90,7 +90,7 @@ const CartItem = ({cartItem, removeItem}) => {
   return (
     <div className='cart__cart-item' >
         <div className="cart__food-img">
-            <img src={`/${cartItem.food.image}`} alt="food" />
+            <img src={`https://o-food-delivery.herokuapp.com/${cartItem.food.image}`} alt="food" />
         </div>
       <div className="cart__food-info">
         <h3>{cartItem.food.name}</h3>

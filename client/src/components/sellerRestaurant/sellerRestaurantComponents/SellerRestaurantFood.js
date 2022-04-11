@@ -72,7 +72,7 @@ const SellerRestaurantFood = ({food, onDeleteFood}) => {
   return (
     <div className='seller-restaurant__seller-restaurant-food' >
         <h3>{food.name}</h3>
-        <img src={`/${food.image}`} alt="logo" />
+        <img src={`https://o-food-delivery.herokuapp.com/${food.image}`} alt="logo" />
         <p> price: {price} </p>
         {isChange ? 
         <button disabled>Change Price</button>

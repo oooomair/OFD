@@ -4,7 +4,7 @@ const ExploreRestaurant = ({restaurant}) => {
 
   return <Link className='explore__restaurant' to={`/restaurant/${restaurant._id}`} >
         <div className="explore__restaurant-logo">
-        <img src={`/${restaurant.logo}`} alt="restaurant" />
+        <img src={`https://o-food-delivery.herokuapp.com/${restaurant.logo}`} alt="restaurant" />
         </div>
         <div className="explore__restaurant-info">
           <h2>{restaurant.name}</h2>
