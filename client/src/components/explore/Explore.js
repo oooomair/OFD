@@ -8,7 +8,6 @@ const Explore = () => {
 
   return <div className='explore' >
       <h1>Restaurants</h1>
-      <input type="text" />
       {error && <h5>error</h5>} 
       {isPending && <div className="dot-revolution"></div>} 
       {restaurants && <ExploreRestaurants restaurants={restaurants} />}

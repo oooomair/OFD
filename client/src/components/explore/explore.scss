@@ -11,17 +11,6 @@
     font-size: 5rem;
     color: #ff5959;
   }
-
-  input {
-    width: 700px;
-    border: 1px solid #e2e2e2;
-    height: 40px;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    margin-top: 15px;
-    font-size: 1rem;
-    padding: 5px 10px;
-  }
 }
 
 .explore__restaurants {
@@ -96,21 +85,10 @@
   }
 }
 
-@media screen and (max-width: 850px) {
-  .explore {
-    input {
-      width: 500px;
-    }
-  }
-}
-
 @media screen and (max-width: 600px) {
   .explore {
     h1 {
       font-size: 4rem;
-    }
-    input {
-      width: 450px;
     }
   }
 }
@@ -118,10 +96,6 @@
 @media screen and (max-width: 500px) {
   .explore {
     padding: 20px 0;
-    input {
-      width: 350px;
-      height: 35px;
-    }
   }
 }
 
@@ -129,9 +103,6 @@
   .explore {
     h1 {
       font-size: 3.8rem;
-    }
-    input {
-      width: 320px;
     }
   }
   .explore__restaurant-logo {
@@ -155,9 +126,6 @@
   .explore {
     h1 {
       font-size: 3.6rem;
-    }
-    input {
-      width: 300px;
     }
   }
   .explore__restaurant-logo {
