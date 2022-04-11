@@ -74,21 +74,8 @@ const SellerRestaurantFood = ({food, onDeleteFood}) => {
         <h3>{food.name}</h3>
         <img src={`https://o-food-delivery.herokuapp.com/${food.image}`} alt="logo" />
         <p> price: {price} </p>
-        {isChange ? 
-        <button disabled>Change Price</button>
-        :
-        <button onClick={() => setIsChange(true)}>Change Price</button>}
-        {isChange && <div className="seller-restaurant__change">
-        <div className="seller-restaurant__change-input">
-          <input value={changedPrice} onChange={(e) => setChangedPrice(e.target.value)} type="text" />
-          <button onClick={onPriceChange}>Confirm</button>
-        </div>
-        <button onClick={() => setIsChange(false)}>Cancel</button>
-        </div>}
-        {isChange ? 
-        <button disabled>Remove</button>
-        :
-        <button onClick={onDelete}>Remove</button>}
+        <p> sales: {food.sales} </p>
+        <button onClick={onDelete}>Remove</button>
     </div>
   )
 }

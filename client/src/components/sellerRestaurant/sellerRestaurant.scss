@@ -102,21 +102,20 @@
   }
   img {
     width: 160px;
-    margin: 10px;
+    margin: 20px;
   }
   p {
     font-size: 1.3rem;
-    margin: 10px 0;
   }
   button {
-    margin-top: 5px;
+    margin-top: 15px;
     width: 150px;
     background-color: #ff7979;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     color: #f7f9ff;
-    height: 30px;
+    height: 35px;
     transition: 0.2s ease all;
     &:hover {
       cursor: pointer;
