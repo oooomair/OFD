@@ -54,11 +54,6 @@ const HomeGetGive = () => {
               <p>GET FOOD FROM ANY RESTAURANT IN UR AREA HAVE DINNER BREAKFAST LUNCH OR ANYTHING UPTO YOU FROM A WIDE VARIETY OF COUSINES AND FOODS AND  PRICING RANGING FROM CHEAP TO EXPENSIVE  </p>
           </div>
           <div className="home__get2">
-            <div className="home__get-search">
-                <p>Search For Any Restaurant</p>
-                <input type="text" />
-                <button>GO</button>
-            </div>
             <Link style={{ color:'inherit', textDecoration:'none' }} to={'/explore'} >
             <span>see all restaurants</span>
             </Link>
@@ -67,7 +62,7 @@ const HomeGetGive = () => {
       <div className="home__give">
           <div className="home__give1">
               <h1>Get Food</h1>
-              <p>GET FOOD FROM ANY RESTaURANT IN UR AREA HAVE DINNER BREAKFAST LUNCH OR ANYTHING UPTO YOU FROM A WIDE VARIETY OF COUSINES AND FOODS AND  PRICING RANGING FROM CHEAP TO EXPENSIVE  </p>
+              <p>become a seller and have your own restaurant so u can show off your own amazing food and also make money, and leave us to deliver your food to the customers in a giffy so you can put all you have into preparing them</p>
           </div>
           <div className="home__give2">
             <span onClick={toSeller}>add your restaurant</span>

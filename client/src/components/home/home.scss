@@ -241,30 +241,6 @@
   justify-content: center;
   align-items: center;
   width: 50%;
-  .home__get-search {
-    margin-bottom: 35px;
-    p {
-      margin: 0 0 5px 5px;
-    }
-    input {
-      width: 400px;
-      height: 35px;
-      border-radius: 10px;
-      border: none;
-      padding: 0 10px;
-      font-size: 1rem;
-    }
-    button {
-      background-color: #ff5959;
-      border: none;
-      height: 35px;
-      width: 50px;
-      margin-left: 10px;
-      border-radius: 5px;
-      color: #eef2ff;
-      cursor: pointer;
-    }
-  }
   span {
     margin-top: 20px;
     padding: 10px 30px;
@@ -299,6 +275,7 @@
   p {
     font-size: 1.3rem;
     padding: 0 60px;
+    text-transform: uppercase;
   }
 }
 
@@ -324,13 +301,6 @@
   }
   .home__give {
     width: 1200px;
-  }
-  .home__get2 {
-    .home__get-search {
-      input {
-        width: 300px;
-      }
-    }
   }
 }
 
@@ -376,13 +346,6 @@
       font-size: 1.1rem;
     }
   }
-  .home__get2 {
-    .home__get-search {
-      input {
-        width: 280px;
-      }
-    }
-  }
   .home__give1 {
     h1 {
       font-size: 4rem;
@@ -411,11 +374,7 @@
     }
   }
   .home__get2 {
-    .home__get-search {
-      input {
-        width: 250px;
-      }
-    }
+    
     span {
       font-size: 0.9rem;
     }
@@ -483,13 +442,6 @@
       padding: 0 15px;
     }
   }
-  .home__get2 {
-    .home__get-search {
-      input {
-        width: 250px;
-      }
-    }
-  }
   .home__give1 {
     p {
       padding: 0 15px;
@@ -512,13 +464,6 @@
   }
   .home__give {
     width: 300px;
-  }
-  .home__get2 {
-    .home__get-search {
-      input {
-        width: 200px;
-      }
-    }
   }
 }
 
