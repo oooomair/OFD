@@ -6,7 +6,7 @@ const RestaurantFoods = () => {
 
   const {id} = useParams()
   
-   const {data: restaurant, isPending, error} = useFetch(`https://o-food-delivery.herokuapp.com/restaurants/${id}`)
+   const {data: restaurant, isPending, error} = useFetch(`http://localhost:5000/restaurants/${id}`)
 
   return <div className='restaurant__restaurant-foods' >
       {error && <h5>error</h5>} 

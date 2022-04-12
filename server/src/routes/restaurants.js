@@ -6,6 +6,12 @@ const mongoose = require('mongoose')
 const multer = require('multer')
 const Food = require('../models/food')
 
+const fs = require('fs')
+const util = require('util')
+const unlinkFile = util.promisify(fs.unlink)
+
+const { uploadFile, getFileStream } = require('../s3')
+
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
       cb(null, './uploads/');
@@ -62,6 +68,15 @@ router.get('/userRestaurants/:userId', async (req, res) => {
   }
 })
 
+// get restaurant image
+
+router.get('/images/:key', (req, res) => {
+  const key = req.params.key
+  const readStream = getFileStream(key)
+
+  readStream.pipe(res)
+})
+
 // create 
 
 router.post('/:userId', upload.single('logo'), async (req, res) => {
@@ -76,13 +91,16 @@ router.post('/:userId', upload.single('logo'), async (req, res) => {
       const newRestaurant = new Restaurant({
         _id: new mongoose.Types.ObjectId(),
         name: name,
-        logo: req.file.path,
+        logo: req.file.filename,  
         slogan: slogan,
         type: type,
         cities: cities,
         priceRange: priceRange,
         founder: req.params.userId
     })
+
+    await uploadFile(req.file)
+    await unlinkFile(req.file.path)
 
     const foundUser = await User.findById(req.params.userId)
     await foundUser.restaurants.push(newRestaurant._id)

@@ -6,7 +6,7 @@ import useFetch from '../../other/useFetch'
 const SellerRestaurants = () => {
   
   const {user} = useContext(GlobalContext)
-  const {data: restaurants, isPending, error} = useFetch(`https://o-food-delivery.herokuapp.com/restaurants/userRestaurants/${user._id}`)
+  const {data: restaurants, isPending, error} = useFetch(`http://localhost:5000/restaurants/userRestaurants/${user._id}`)
 
   return (
     <div className='seller__seller-restaurants' >
@@ -19,7 +19,7 @@ const SellerRestaurants = () => {
           {restaurants && restaurants.map(restaurant => {
             return (
             <Link key={restaurant._id} to={`/sellerRestaurant/${restaurant._id}`}>
-              <img src={`https://o-food-delivery.herokuapp.com/${restaurant.logo}`} alt="logo" /> 
+              <img src={`http://localhost:5000/restaurants/images/${restaurant.logo}`} alt="logo" /> 
             </Link>
             )})
           }

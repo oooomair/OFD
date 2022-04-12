@@ -18,7 +18,7 @@ const Login = () => {
     
       const user = { username, password };
     
-      const res = await fetch('https://o-food-delivery.herokuapp.com/userAuth/login', {
+      const res = await fetch('http://localhost:5000/userAuth/login', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user)
@@ -45,7 +45,7 @@ const Login = () => {
         <label htmlFor="username">Username</label>
         <input value={username} onChange={(e) => setUsername(e.target.value)} autoComplete='off' id='username' type="text" />
         <label htmlFor="password">Password</label>
-        <input value={password} onChange={(e) => setPassword(e.target.value)} autoComplete='off' id='confirm-username'  type="text" />
+        <input value={password} onChange={(e) => setPassword(e.target.value)} autoComplete='off' id='confirm-username'  type="password" />
         <button onClick={onLogin} >Login</button>
       </div>
   </div>;
