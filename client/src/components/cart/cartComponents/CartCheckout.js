@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import congrats from '../../../assets/congrats.gif'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { GlobalContext } from '../../../context/GlobalContext';
 
 const CartCheckout = ({cartItems}) => {
 
     const {user} = useContext(GlobalContext)
+    const [emptyCart, setEmptyCart] = useState(false)
     let navigate = useNavigate()
 
   const values = cartItems && cartItems.map(cartItem => {
@@ -47,7 +48,12 @@ const CartCheckout = ({cartItems}) => {
 
   return <div className='cart__cart-checkout' >
         <h2>Total = {total} eth</h2>
-        <span onClick={onCheckout} >Check Out</span>
+        {cartItems.length >= 1 ?
+          <span onClick={onCheckout} >Check Out</span>
+        :
+        <span onClick={() => setEmptyCart(true)} >Check Out</span>
+        }
+        {emptyCart && <p>Cart is empty</p>}
     </div>
 };
 

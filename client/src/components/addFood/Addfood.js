@@ -19,31 +19,35 @@ const Addfood = () => {
 
   const onSubmit = () => {
 
-    const formData = new FormData();
-		formData.append('image', file);
-    formData.append('name', name);
-		formData.append('price', price)
-
-    fetch(
-			`https://o-food-delivery.herokuapp.com/foods/${id}`,
-			{
-				method: 'POST',
-				body: formData
-			}
-		).then(res => {
-      return res.json()
-    }).then(data => {
-      if (data.status === 200) {
-        setName('')
-        setFile()
-        setPrice('')
-        navigate(`/sellerRestaurant/${id}`, {replace: true})
-      } else {
-        setMessage(data.message)
-      }
-    }).catch(err => {
-      console.log(err);
-    })
+    if (name === '' || price === '') {
+      setMessage('Fill in all the required data')
+    } else {
+      const formData = new FormData();
+      formData.append('image', file);
+      formData.append('name', name);
+      formData.append('price', price)
+  
+      fetch(
+        `https://o-food-delivery.herokuapp.com/foods/${id}`,
+        {
+          method: 'POST',
+          body: formData
+        }
+      ).then(res => {
+        return res.json()
+      }).then(data => {
+        if (data.status === 200) {
+          setName('')
+          setFile()
+          setPrice('')
+          navigate(`/sellerRestaurant/${id}`, {replace: true})
+        } else {
+          setMessage(data.message)
+        }
+      }).catch(err => {
+        console.log(err);
+      })
+    }
   }
 
   return (

@@ -61,7 +61,10 @@ const CreateRestaurant = () => {
 
   const onSubmit = () => {
 
-    const cities = chi + ' ' + dub + ' ' + kar
+    if (name === '' || slogan === '' || type === '' ) {
+      setMessage('Fill in all the required data')
+    }else {
+      const cities = chi + ' ' + dub + ' ' + kar
     const priceRange = $1 + $2 + $3
 
     const formData = new FormData();
@@ -102,9 +105,12 @@ const CreateRestaurant = () => {
         }).catch(err => {
           console.log(err);
         })
+      }else {
+        setMessage('Input all data')
       }
     } else {
       setMessage('Input all data')
+    }
     }
   }
 

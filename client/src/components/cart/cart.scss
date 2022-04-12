@@ -19,7 +19,7 @@
 .cart__cart-items {
   display: flex;
   flex-flow: column;
-  min-height: 300px;
+  min-height: 450px;
   background-color: #ebf2ff;
   border-radius: 20px;
   width: 100%;
@@ -116,6 +116,22 @@
     &:hover{
       background-color: #ff3838;
     }
+  }
+  p {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    animation: slide-bottom 0.5s;
+  }
+}
+
+@keyframes slide-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
