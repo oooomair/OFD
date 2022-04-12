@@ -29,7 +29,7 @@ const CartCheckout = ({cartItems}) => {
     })
 
     fetch(
-      `http://localhost:5000/carts/${user._id}`,
+      `https://o-food-delivery.herokuapp.com/carts/${user._id}`,
       {
         method: 'DELETE'
       }

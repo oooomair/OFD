@@ -8,7 +8,7 @@ const SellerRestaurantFoods = () => {
   const [foods, setFoods] = useState(null)
 
   const {id} = useParams()
-  const {data: restaurant, isPending, error} = useFetch(`http://localhost:5000/restaurants/${id}`)
+  const {data: restaurant, isPending, error} = useFetch(`https://o-food-delivery.herokuapp.com/restaurants/${id}`)
 
   useEffect(() => {
     restaurant && setFoods(restaurant.foods)

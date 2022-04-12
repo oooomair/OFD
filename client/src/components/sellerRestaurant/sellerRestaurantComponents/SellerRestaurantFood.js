@@ -32,7 +32,7 @@ const SellerRestaurantFood = ({food, onDeleteFood}) => {
         )
         onDeleteFood(food._id)
         fetch(
-          `http://localhost:5000/foods/${food._id}/${id}`,
+          `https://o-food-delivery.herokuapp.com/foods/${food._id}/${id}`,
           {
             method: 'DELETE'
           }
@@ -52,7 +52,7 @@ const SellerRestaurantFood = ({food, onDeleteFood}) => {
     const hmmprice = { changedPrice }
 
     fetch(
-      `http://localhost:5000/foods/${food._id}`,
+      `https://o-food-delivery.herokuapp.com/foods/${food._id}`,
       {
         method: 'PATCH',
         headers: { "Content-Type": "application/json" },
@@ -72,7 +72,7 @@ const SellerRestaurantFood = ({food, onDeleteFood}) => {
   return (
     <div className='seller-restaurant__seller-restaurant-food' >
         <h3>{food.name}</h3>
-        <img src={`http://localhost:5000/foods/images/${food.image}`} alt="logo" />
+        <img src={`https://o-food-delivery.herokuapp.com/foods/images/${food.image}`} alt="logo" />
         <p> price: {price} </p>
         <p> sales: {food.sales} </p>
         <button onClick={onDelete}>Remove</button>
