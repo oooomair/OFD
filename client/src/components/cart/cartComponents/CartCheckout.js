@@ -30,7 +30,7 @@ const CartCheckout = ({cartItems}) => {
     })
 
     fetch(
-      `https://o-food-delivery.herokuapp.com/carts/${user._id}`,
+      `https://ofd.up.railway.app/carts/${user._id}`,
       {
         method: 'DELETE'
       }

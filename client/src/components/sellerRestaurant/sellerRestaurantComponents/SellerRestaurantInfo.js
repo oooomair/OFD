@@ -11,7 +11,7 @@ const SellerRestaurantInfo = () => {
 
 
   const {id} = useParams()
-  const {data: restaurant, isPending, error} = useFetch(`https://o-food-delivery.herokuapp.com/restaurants/${id}`)
+  const {data: restaurant, isPending, error} = useFetch(`https://ofd.up.railway.app/restaurants/${id}`)
 
   let restaurantSales = 0
 
@@ -37,7 +37,7 @@ const SellerRestaurantInfo = () => {
           'success'
         )
         fetch(
-          `https://o-food-delivery.herokuapp.com/restaurants/${id}/${user._id}`,
+          `https://ofd.up.railway.app/restaurants/${id}/${user._id}`,
           {
             method: 'DELETE'
           }
@@ -62,7 +62,7 @@ const SellerRestaurantInfo = () => {
     {restaurant && <div className='seller-restaurant__seller-restaurant-info'>
       <h3> {restaurant.name} </h3>
         <div className="seller-restaurant__logo">
-            <img src={`https://o-food-delivery.herokuapp.com/restaurants/images/${restaurant.logo}`} alt="logo" />    
+            <img src={`https://ofd.up.railway.app/restaurants/images/${restaurant.logo}`} alt="logo" />    
         </div>
         <div className="seller-restaurant__details">
             <h2>{restaurant.name}</h2>

@@ -33,7 +33,7 @@ const HomeGetGive = () => {
                       confirmButtonColor: '#3085d6',
                       confirmButtonText: 'Yay'
                   }).then(() => {
-                      fetch(`https://o-food-delivery.herokuapp.com/userAuth/${user._id}`, 
+                      fetch(`https://ofd.up.railway.app/userAuth/${user._id}`, 
                       { 
                         method: "PATCH"
                       });

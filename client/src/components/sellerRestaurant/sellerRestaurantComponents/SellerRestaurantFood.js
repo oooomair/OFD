@@ -32,7 +32,7 @@ const SellerRestaurantFood = ({food, onDeleteFood}) => {
         )
         onDeleteFood(food._id)
         fetch(
-          `https://o-food-delivery.herokuapp.com/foods/${food._id}/${id}`,
+          `https://ofd.up.railway.app/foods/${food._id}/${id}`,
           {
             method: 'DELETE'
           }
@@ -52,7 +52,7 @@ const SellerRestaurantFood = ({food, onDeleteFood}) => {
     const hmmprice = { changedPrice }
 
     fetch(
-      `https://o-food-delivery.herokuapp.com/foods/${food._id}`,
+      `https://ofd.up.railway.app/foods/${food._id}`,
       {
         method: 'PATCH',
         headers: { "Content-Type": "application/json" },
@@ -72,7 +72,7 @@ const SellerRestaurantFood = ({food, onDeleteFood}) => {
   return (
     <div className='seller-restaurant__seller-restaurant-food' >
         <h3>{food.name}</h3>
-        <img src={`https://o-food-delivery.herokuapp.com/foods/images/${food.image}`} alt="logo" />
+        <img src={`https://ofd.up.railway.app/foods/images/${food.image}`} alt="logo" />
         <p> price: {price} </p>
         <p> sales: {food.sales} </p>
         <button onClick={onDelete}>Remove</button>

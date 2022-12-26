@@ -17,7 +17,7 @@ const RestaurantFood = ({food}) => {
              ammount: foodAmmount,
             } 
 
-        fetch(`https://o-food-delivery.herokuapp.com/carts/${user._id}`, {
+        fetch(`https://ofd.up.railway.app/carts/${user._id}`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(cartItem)
@@ -37,11 +37,11 @@ const RestaurantFood = ({food}) => {
 
   return <div className='restaurant__restaurant-food' >
       <div className="restaurant__food-img">
-          <img src={`https://o-food-delivery.herokuapp.com/foods/images/${food.image}`} alt="food" />
+          <img src={`https://ofd.up.railway.app/foods/images/${food.image}`} alt="food" />
       </div>
       <div className="restaurant__food-info">
           <h1> {food.name} </h1>
-            <img src={`https://o-food-delivery.herokuapp.com/foods/images/${food.image}`} alt="food" />
+            <img src={`https://ofd.up.railway.app/foods/images/${food.image}`} alt="food" />
           <p> price = {food.price} eth </p>
           <div className="restaurant__add-food">
                { foodAmmount !== 0 ?
