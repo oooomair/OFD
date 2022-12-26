@@ -33,7 +33,7 @@ app.use('/userAuth', userAuthRouter)
 const cartRouter = require('./src/routes/carts')
 app.use('/carts', cartRouter) 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`app running on port ${PORT}`);
 });

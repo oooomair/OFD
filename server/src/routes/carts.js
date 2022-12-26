@@ -26,7 +26,7 @@ router.post('/:userId',  async (req, res) => {
 
     const { foodId, ammount } = req.body
 
-    const foundCartItem = await CartItem.findOne({food: foodId})
+    const foundCartItem = await CartItem.findOne({food: foodId, user: req.params.userId})
 
     if (foundCartItem) {
      CartItem.findByIdAndUpdate(foundCartItem._id, {ammount: foundCartItem.ammount + ammount }, {new: true}).then((cartItem) => {
@@ -35,6 +35,9 @@ router.post('/:userId',  async (req, res) => {
             message: 'cartItem not found'
         });
     }
+    return res.status(200).json({
+      message: 'updated food'
+    });
     }).catch((error) => {
         res.status(500).send(error);
     })
