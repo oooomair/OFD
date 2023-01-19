@@ -75,6 +75,8 @@ const CreateRestaurant = () => {
 		formData.append('cities', cities);
 		formData.append('priceRange', priceRange);
 
+    console.log(formData);
+
     if (chicago || dubai || karachi) {
       if ($ | $$ | $$$) {
         fetch(
